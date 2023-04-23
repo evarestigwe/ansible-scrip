@@ -1,0 +1,17 @@
+---
+- name: Configure webserver with nginx
+  hosts: webservers
+  become: True
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: latest
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes  # if you want to also enable nginx
+        
+
+
